@@ -1,0 +1,31 @@
+{
+  "expo": {
+    "name": "World Cup Dynasty",
+    "slug": "world-cup-dynasty",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A1628"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.worldcupdynasty.roadtoglory"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A1628",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "package": "com.worldcupdynasty.roadtoglory"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    }
+  }
+}
