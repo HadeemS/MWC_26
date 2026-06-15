@@ -1,8 +1,11 @@
 import React from 'react';
+import { Platform } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { GameProvider } from './src/context/GameContext';
+import WebAppShell from './src/components/WebAppShell';
 import { COLORS } from './src/theme';
 
 import SplashScreen from './src/screens/SplashScreen';
@@ -44,12 +47,16 @@ const screenOptions = {
   animation: 'slide_from_right',
 };
 
+const linking = Platform.OS === 'web' ? { prefixes: ['/'] } : undefined;
+
 export default function App() {
   return (
-    <GameProvider>
-      <NavigationContainer>
-        <StatusBar style="light" />
-        <Stack.Navigator initialRouteName="Splash" screenOptions={screenOptions}>
+    <SafeAreaProvider>
+      <GameProvider>
+        <WebAppShell>
+          <NavigationContainer linking={linking}>
+            <StatusBar style="light" />
+            <Stack.Navigator initialRouteName="Splash" screenOptions={screenOptions}>
           <Stack.Screen name="Splash" component={SplashScreen} />
           <Stack.Screen name="MainMenu" component={MainMenuScreen} />
           <Stack.Screen name="ManagerCreation" component={ManagerCreationScreen} />
@@ -80,8 +87,10 @@ export default function App() {
           <Stack.Screen name="LegacyCareer" component={LegacyCareerScreen} />
           <Stack.Screen name="Settings" component={SettingsScreen} />
           <Stack.Screen name="SaveSlots" component={SaveSlotsScreen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </GameProvider>
+            </Stack.Navigator>
+          </NavigationContainer>
+        </WebAppShell>
+      </GameProvider>
+    </SafeAreaProvider>
   );
 }

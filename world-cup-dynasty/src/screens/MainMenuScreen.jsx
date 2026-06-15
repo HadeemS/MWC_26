@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { COLORS, SPACING } from '../theme';
 import Button from '../components/Button';
@@ -16,7 +16,7 @@ export default function MainMenuScreen({ navigation }) {
   const hasSave = gameState.manager && gameState.country;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.content} showsVerticalScrollIndicator={false}>
       <View style={styles.hero}>
         <Text style={styles.trophy}>🏆</Text>
         <Text style={styles.title}>WORLD CUP DYNASTY</Text>
@@ -53,12 +53,13 @@ export default function MainMenuScreen({ navigation }) {
           </TouchableOpacity>
         ))}
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: COLORS.background },
+  content: { flexGrow: 1, paddingBottom: SPACING.xl },
   hero: { alignItems: 'center', paddingTop: 60, paddingBottom: SPACING.lg },
   trophy: { fontSize: 48 },
   title: { fontSize: 24, fontWeight: '900', color: COLORS.gold, marginTop: 8 },
@@ -66,7 +67,7 @@ const styles = StyleSheet.create({
   currency: { marginTop: SPACING.md },
   menu: { paddingHorizontal: SPACING.lg },
   btn: { marginTop: SPACING.sm },
-  modes: { flex: 1, padding: SPACING.md, marginTop: SPACING.md },
+  modes: { padding: SPACING.md, marginTop: SPACING.md },
   modesTitle: { color: COLORS.textMuted, fontSize: 11, fontWeight: '700', letterSpacing: 2, marginBottom: SPACING.sm },
   modeCard: {
     flexDirection: 'row', alignItems: 'center', backgroundColor: COLORS.card,

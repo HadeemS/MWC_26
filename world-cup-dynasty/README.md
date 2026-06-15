@@ -12,13 +12,39 @@ npm install
 npx expo start
 ```
 
-Scan the QR code with **Expo Go** (iOS/Android) or press `a` for Android emulator / `i` for iOS simulator.
+Scan the QR code with **Expo Go** (iOS/Android), press `a` for Android emulator / `i` for iOS simulator, or press **`w`** to open in your **web browser** on PC/Mac.
+
+### Play on your computer (web browser)
+
+```bash
+cd world-cup-dynasty
+npm install
+npm run web
+```
+
+Or start Expo and press **`w`**:
+
+```bash
+npx expo start
+# then press w in the terminal
+```
+
+The game opens at **http://localhost:8081** (or the next free port). Saves use browser local storage on web.
+
+To build a static web version you can host:
+
+```bash
+npm run web:build
+# output is in the dist/ folder
+```
 
 ### Dependencies
 
 ```bash
 npm install @react-native-async-storage/async-storage
 npm install react-native-svg
+npm install @expo/vector-icons
+npm install react-dom react-native-web @expo/metro-runtime
 npm install @react-navigation/native @react-navigation/native-stack
 npm install react-native-screens react-native-safe-area-context
 ```

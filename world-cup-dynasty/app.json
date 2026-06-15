@@ -25,7 +25,14 @@
       "package": "com.worldcupdynasty.roadtoglory"
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "bundler": "metro",
+      "favicon": "./assets/favicon.png",
+      "backgroundColor": "#0A1628",
+      "themeColor": "#D4AF37",
+      "name": "World Cup Dynasty",
+      "shortName": "WCD Dynasty",
+      "display": "standalone",
+      "orientation": "portrait"
     }
   }
 }
